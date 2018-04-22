@@ -17,20 +17,15 @@ namespace HW
                 Dictionary<int, string> dic = Dictionary.MyDictionary(amount);
 
                 // Получаем коллекцию ключей
-                ICollection<int> keys = dic.Keys;
+                ICollection <int> keys = dic.Keys;
+
 
                 Console.WriteLine("Collection conteins: ");
                 foreach (int items in keys)
-                    Console.WriteLine("ID: {0}  Name: {1}", items, dic[items]);
+                  Console.WriteLine("ID: {0}  Name: {1}", items, dic[items]);
+                
 
-
-                Console.WriteLine("delete process is starting");
                 Dictionary<int, string> dic1 = Dictionary.Delete(amount);
-                ICollection<int> keys1 = dic1.Keys;
-
-                Console.WriteLine("Upon deliting collection conteins: ");
-                foreach (int items in keys1)
-                    Console.WriteLine("ID: {0}  Name: {1}", items, dic1[items]);
 
 
             }
@@ -38,7 +33,6 @@ namespace HW
             {
                 Console.WriteLine("Invalid Input");
             }
-
 
             Console.ReadLine();
         }
