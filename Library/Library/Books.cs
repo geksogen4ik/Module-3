@@ -64,6 +64,11 @@ namespace Library
                     dictionary.Add(TypeOfBook.Manuscript, bookName);
                     break;
             }
+
+            foreach(var books in dictionary)
+            {
+                Console.WriteLine(dictionary);
+            }
             
         }
     }
