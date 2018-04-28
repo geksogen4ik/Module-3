@@ -27,6 +27,9 @@ namespace HW
 
                 Dictionary<int, string> dic1 = Dictionary.Delete(amount);
 
+                ICollection<int> keys1 = dic1.Keys;
+                foreach (int items in keys1)
+                    Console.WriteLine("ID: {0}  Name: {1}", items, dic1[items]);
 
             }
             catch (FormatException)
