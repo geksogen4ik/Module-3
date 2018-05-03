@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class Monograp
+    public class Monograph : Books
     {
+        public void Limit()
+        {
+            todayDate = DateTime.Today;
+            term = todayDate.AddDays(60.0);
+            Console.WriteLine($"You should return Monograph on {term}");
+        }
     }
 }

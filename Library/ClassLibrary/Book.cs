@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class Book
+    public class Book : Books
     {
+        public void Limit()
+        {
+            todayDate = DateTime.Today;
+            term = todayDate.AddDays(30.0);
+            Console.WriteLine($"You should return Book on {term}");
+        }
     }
 }

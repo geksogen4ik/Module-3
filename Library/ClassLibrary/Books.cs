@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Books
+    public class Books 
     {
-        public Dictionary<TypeOfBook, BooksName> dictionary = new Dictionary<TypeOfBook, BooksName>();
+        public static Dictionary<TypeOfBook, BooksName> dictionary = new Dictionary<TypeOfBook, BooksName>();
 
         public enum TypeOfBook
         {
@@ -23,6 +23,7 @@ namespace ClassLibrary
         public BooksName bookName;
         public DateTime term;
         public DateTime todayDate;
+
         public void LibraryPopulating(int choice)
         {
             Console.WriteLine("What type of Book do you want to add into the Library?");

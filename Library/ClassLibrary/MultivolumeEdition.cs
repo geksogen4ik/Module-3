@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class MultivolumeEdition
+    public class MultivolumeEdition : Books
     {
+        public void Limit()
+        {
+            todayDate = DateTime.Today;
+            term = todayDate.AddDays(90.0);
+            Console.WriteLine($"You should return MultivolumeEdition on {term}");
+        }
     }
 }
