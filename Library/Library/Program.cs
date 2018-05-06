@@ -36,6 +36,7 @@ namespace Library
             thread.Start();
             thread2.Start();
 
+            Console.ReadLine();
         }
     }
 }

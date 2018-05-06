@@ -10,12 +10,12 @@ namespace ClassLibrary
     public class Books
     {
         static object locker = new object();
-        static object locker1 = new object();
+        //static object locker1 = new object();
 
         public static Dictionary<TypeOfBook, BooksName> dictionary = new Dictionary<TypeOfBook, BooksName>();
 
         BooksName name = new BooksName();
-        //public  delegate DateTime BooksDelegate(DateTime todayDate);
+       
         public List<string> booksOnHands = new List<string>();
 
         public static Dictionary<DateTime, string> expiredBook = new Dictionary<DateTime, string>();
@@ -39,6 +39,7 @@ namespace ClassLibrary
         public void LibraryPopulating(int choice)
         {
             Int32.TryParse(Console.ReadLine(), out choice);
+            Console.WriteLine("Enter book's name");
 
             dictionary.Add((TypeOfBook)choice, bookName);
 
@@ -60,12 +61,13 @@ namespace ClassLibrary
                     booksOnHands.Add(someBook);
                     name.booksnames.Remove(someBook);
                 }
+                Console.WriteLine($"You have got {someBook}");
             }
         }
 
         public void ReturnBooks()
         {
-            lock (locker1)
+            lock (locker)
             {
                 Console.WriteLine("What book do you want to return?");
                 someBook = Console.ReadLine();
@@ -74,7 +76,9 @@ namespace ClassLibrary
                 {
                     booksOnHands.Remove(someBook);
                     name.booksnames.Add(someBook);
+                   
                 }
+                Console.WriteLine($"You've just return {someBook}");
                 returnDate = DateTime.Today;
                 if(returnDate > term)
                 {
