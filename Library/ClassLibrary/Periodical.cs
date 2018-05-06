@@ -8,11 +8,12 @@ namespace ClassLibrary
 {
     public class Periodical : Books
     {
-        public void Limit()
+        public DateTime Limit(DateTime todayDate)
         {
             todayDate = DateTime.Today;
             term = todayDate.AddDays(15.0);
             Console.WriteLine($"You should return Periodical on {term}");
+            return term;
         }
     }
 }

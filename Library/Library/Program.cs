@@ -4,20 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassLibrary;
+using System.Threading;
 
 namespace Library
 {
-    class Program
+   public class Program
 
     {
-       
+   
+
         static void Main(string[] args)
         {
-
-           
-            var books = new Books();
-            var limitation = new Limitation();
-
             Console.WriteLine("What type of Book do you want to add into the Library?");
             Console.WriteLine("If you want add 'Book', select - [1]");
             Console.WriteLine("If you want add 'Periodical', select - [2]");
@@ -26,12 +23,18 @@ namespace Library
             Console.WriteLine("If you want add 'Monograph', select - [5]");
             Console.WriteLine("If you want add 'Manuscript', select - [6]");
 
+            var books = new Books();
             int choice = 0;
             Int32.TryParse(Console.ReadLine(), out choice);
 
-            books.LibraryPopulating();
+            books.LibraryPopulating(choice);
+           
 
-            limitation.DateTerm();
+            Thread thread = new Thread(new ThreadStart(books.ExtraditionBooks));
+            Thread thread2 = new Thread(new ThreadStart(books.ReturnBooks));
+
+            thread.Start();
+            thread2.Start();
 
         }
     }

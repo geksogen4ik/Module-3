@@ -8,11 +8,12 @@ namespace ClassLibrary
 {
     public class Manuscript : Books
     {
-        public void Limit()
+        public DateTime Limit(DateTime todayDate)
         {
             todayDate = DateTime.Today;
             term = todayDate.AddDays(30.0);
             Console.WriteLine($"You should return Manuscript {term}");
+            return term;
         }
     }
 }

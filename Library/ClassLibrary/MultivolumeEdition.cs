@@ -8,11 +8,12 @@ namespace ClassLibrary
 {
     public class MultivolumeEdition : Books
     {
-        public void Limit()
+        public DateTime Limit(DateTime todayDate)
         {
             todayDate = DateTime.Today;
             term = todayDate.AddDays(90.0);
             Console.WriteLine($"You should return MultivolumeEdition on {term}");
+            return term;
         }
     }
 }
